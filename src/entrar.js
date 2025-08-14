@@ -887,53 +887,18 @@ export default App; */
 import React,{Component} from 'react';
 import { View, StyleSheet, Text, Button,Modal} from 'react-native';
 
-import Entrar from './src/entrar'
-
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      modalVisible:false
-    };
-
-    this.entrar = this.entrar.bind(this);
-    this.sair = this.sair.bind(this);
-
-  }
-  entrar(){
-    this.setState({modalVisible: true});
-  }
-  sair(visible){
-    this.setState({modalVisible: visible});
-  }
+class App extends Component{
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button title = "Entrar" onPress={this.entrar}/>
-
-        <Modal transparent={true} animationType="fade" visible={this.state.modalVisible}>
-          
-          <View style = {{marginTop: 15, flex: 1 , alignContent: 'center', justifyContent: 'center'}}>
-            <Entrar fechar = {() => this.sair(false)}/>
-          </View>
-          
-
-        </Modal>
-
-      </View>
+   
+        <View style={{ backgroundColor: '#00000086', width: '100%', height: 350, borderRadius: 15}}>
+          <Text style={{ paddingTop:15, color: '#FFF', fontSize: 28, textAlign:'center' }}>Seja Bem-vindo!</Text>
+          <Button title="Sair" onPress={this.props.fechar} />
+        </View>
+      
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    justifyContent:'center',
-    alignItems: 'center',
-    backgroundColor: '#DDD',
-  },
-});
 
 export default App;
